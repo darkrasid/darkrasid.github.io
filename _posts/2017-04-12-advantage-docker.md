@@ -7,8 +7,7 @@ categories: docker container
 ---
 
 
-이번에 개발자 포탈을 Docker 위에 올리게 되면서 배운 이것저것 지식을 글로 써서 풀어보려 했으나.. 저의 짧은 글실력에 속터지고 화딱지가 나서 포기하려던 중 [Docker captain](https://www.docker.com/community/docker-captains)중 한명인 John Zaccone이 Docker를 쓸 때의 5가지 이점에 대한 포스팅을 올렸더군요.. 그래서 못쓰는글 창작하느니 잘쓰여진 글 한번 번역해봤습니다.. 솔직히 크게 새로운 내용이 있는 post는 아니긴 한데 재미로 보기에 좋은 것 같습니다. 
-
+이번에 [Docker captain](https://www.docker.com/community/docker-captains)중 한명인 John Zaccone이 Docker를 쓸 때의 5가지 이점에 대한 포스팅을 올렸더군요.. 그래서 못쓰는글 창작하느니 잘쓰여진 글 한번 번역해봤습니다.. 솔직히 크게 새로운 내용이 있는 post는 아니긴 한데 재미로 보기에 좋은 것 같습니다. 
 
 겁나 많은 오역, 의역이 있습니다. 영어 울렁증이 없으신 분은 그냥 원문으로 보시는걸 추천합니다 ㅋㅋ 
 [원문보러가기](http://www.johnzaccone.io/top-5-benefits-of-docker/) 
