@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Docker vs. VM"
+author: "Pilsner"
+date:  2017-04-12 10:18:00 +0900
+categories: docker container vm
+---
+
 Docker를 공부하면 가장 처음 등장하는 내용이 바로 `docker vs. vm`입니다. 사실 둘의 비교는 정확히는 `container vs. vm `이긴 한데, 이 포스트에서는 docker container와 vm은 서로 어떻게 다른지 장점 단점에 대해 아주 ‘자세하지 않게’ 다룹니다.
 
 vm과 container의 격리 레벨에 대해 조금 생각해봅시다. vm이 container보다 훨씬 더 강력하게 격리됩니다. vm은 가상화된 하드웨어 위에 os가 올라가는 형태로 거의 완벽하게 host와 분리된다고 봐도 무방하죠. 반면 container는 os 가상화입니다. os 부분을 가상화해서 올리고 커널을 host와 공유합니다. vm보다 얕게 격리되죠. 이 차이에서 발생하는 장단점 이슈들을 몇 개 살펴보겠습니다.
