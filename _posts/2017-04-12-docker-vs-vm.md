@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Docker vs. VM"
+title:  "도커와 vm"
 author: "Pilsner"
 date:  2017-04-12 10:18:00 +0900
 categories: docker container vm
