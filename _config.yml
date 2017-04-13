@@ -6,7 +6,7 @@ markdown: redcarpet
 highlighter: pygments
 logo: false
 paginate: 15
-baseurl: /
+baseurl: "" 
 domain_name: 'darkrasid.github.io'
 google_analytics: 'UA-XXXXXXXX-X'
 gems: [jekyll-paginate, jekyll-sitemap]
