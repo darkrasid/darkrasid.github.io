@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Docker의 image 만드는 과정"
+title:  "docker top 5 advantage"
 author: "Pilsner"
-date: 2017–04–19 
-categories: docker make image commit
+date:  2017-02-12 10:18:00 +0900
+categories: docker container 
 ---
 
 ## Docker의 image 만드는 과정
