@@ -39,18 +39,18 @@ docker build -t how_to_make_image_1 .
 ```
 Sending build context to Docker daemon 2.048 kB
 Step 1/4 : FROM ubuntu
- — -> 6a2f32de169d
+ ---> 6a2f32de169d
 Step 2/4 : LABEL maintainer "darkrasid@gmail.com"
- — -> Running in 17f3d260c524
- — -> ea7651d29bce
+ ---> Running in 17f3d260c524
+ ---> ea7651d29bce
 Removing intermediate container 17f3d260c524
 Step 3/4 : RUN touch /tmp/test_file
- — -> Running in 737b346f5692
- — -> 0ff937a46f57
+ ---> Running in 737b346f5692
+ ---> 0ff937a46f57
 Removing intermediate container 737b346f5692
 Step 4/4 : CMD /bin/bash
- — -> Running in 3b730dcef4d2
- — -> a0e940c0f001
+ ---> Running in 3b730dcef4d2
+ ---> a0e940c0f001
 Removing intermediate container 3b730dcef4d2
 Successfully built a0e940c0f001
 ```
@@ -75,18 +75,18 @@ Dockerfile에서 image가 생성되는 과정은 위의 과정을 반복하는 �
 ```
 Sending build context to Docker daemon 2.048 kB
 Step 1/4 : FROM ubuntu
- — -> 6a2f32de169d => base image를 토대로 만들어진 image
+ ---> 6a2f32de169d => base image를 토대로 만들어진 image
 Step 2/4 : LABEL maintainer "darkrasid@gmail.com"
- — -> Running in 17f3d260c524 => 위의 base image(6a2f32de169d)를 토대로 명령을 날려 만들어진 container
- — -> ea7651d29bce => 그 container를 토대로 만들어진 image
+ ---> Running in 17f3d260c524 => 위의 base image(6a2f32de169d)를 토대로 명령을 날려 만들어진 container
+ ---> ea7651d29bce => 그 container를 토대로 만들어진 image
 Removing intermediate container 17f3d260c524 => 쓸모없어진 container의 삭제
 Step 3/4 : RUN touch /tmp/test_file 
- — -> Running in 737b346f5692 => 위에서 생성된 image(ea7651d29bce)를 토대로 명령을 날려 만들어진 container
- — -> 0ff937a46f57 => 그 container를 토대로 만들어진 image 
+ ---> Running in 737b346f5692 => 위에서 생성된 image(ea7651d29bce)를 토대로 명령을 날려 만들어진 container
+ ---> 0ff937a46f57 => 그 container를 토대로 만들어진 image 
 Removing intermediate container 737b346f5692 => 쓸모없어진 container의 삭제
 Step 4/4 : CMD /bin/bash => 위의 과정 반복
- — -> Running in 3b730dcef4d2
- — -> a0e940c0f001
+ ---> Running in 3b730dcef4d2
+ ---> a0e940c0f001
 Removing intermediate container 3b730dcef4d2
 Successfully built a0e940c0f001 => 최종적으로 생성된 image, 그리고 쓸모없어진 전 image들 삭제
 ```
@@ -128,13 +128,13 @@ CMD ["/bin/bash"]
 ```
 Sending build context to Docker daemon 2.048 kB
 Step 1/4 : FROM ubuntu
- — -> 6a2f32de169d
+ ---> 6a2f32de169d
 Step 2/4 : LABEL maintainer "darkrasid@gmail.com"
- — -> Running in fc5cfbea326c
- — -> 19928d912115
+ ---> Running in fc5cfbea326c
+ ---> 19928d912115
 Removing intermediate container fc5cfbea326c
 Step 3/4 : RUN tasdouch /tmp/test_file
- — -> Running in a547a9e9c97c
+ ---> Running in a547a9e9c97c
 /bin/sh: 1: tasdouch: not found
 The command ‘/bin/sh -c tasdouch /tmp/test_file’ returned a non-zero code: 127
 ```
@@ -160,11 +160,11 @@ ubuntu              latest     6a2f32de169d     6 days ago          117 MB
 
 아까 만든 `how_to_make_image_1` 이 있고 이상한 none image 2개가 있네요. hash 값을 보니 image를 만들다만 찌꺼기입니다. 즉, 중간에 생성되던 image는 image가 최종적으로 생성될 때 삭제됩니다.
 위에는 일부러 에러를 냈지만 사실 Dockerfile을 만드는 과정은 신성한 노가다의 현장입니다. 수많은 none image가 생성이 되죠. 그러다 드라마틱하게 뙇 이미지를 생성하면 none image가 삭제가 됩니다. 
-하지만 그러지 못했다면? 노가다를 하다 ` — no-cache` 옵션이라도 썼다면? 저거 다 찌꺼기로 내 로컬에 남습니다. 이번엔 삭제하는 방법에 대해 알려드리겠습니다.
+하지만 그러지 못했다면? 노가다를 하다 ` --no-cache` 옵션이라도 썼다면? 저거 다 찌꺼기로 내 로컬에 남습니다. 이번엔 삭제하는 방법에 대해 알려드리겠습니다.
 우선 찾아내는 방법 먼저
 
 ```
-docker image ls — filter=dangling=true # docker images — filter=dangling=true
+docker image ls --filter=dangling=true # docker images --filter=dangling=true
 ```
 
 ```
@@ -176,7 +176,7 @@ REPOSITORY TAG    IMAGE ID     CREATED        SIZE
 이런 결과가 나옵니다. 이걸 삭제하려면
 
 ```
-docker image rm $(docker image ls — filter=dangling=true -q) # -q 옵션은 hash_id만 빼오는 옵션입니다.
+docker image rm $(docker image ls --filter=dangling=true -q) # -q 옵션은 hash_id만 빼오는 옵션입니다.
 ```
 
 이러면 쓸모 없어진 image만 삭제가 됩니다.
