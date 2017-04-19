@@ -2,7 +2,7 @@
 layout: post
 title: "Docker의 image 만드는 과정"
 author: "Pilsner"
-date: 2017–04–19 11:26:00 +0900
+date: 2017–04–19 
 categories: docker make image commit
 ---
 
