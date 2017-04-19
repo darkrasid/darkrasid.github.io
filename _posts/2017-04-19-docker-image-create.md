@@ -124,8 +124,8 @@ CMD ["/bin/bash"]
 ```
 
 아래와 같은 error log가 나올 겁니다. 
-```
 
+```
 Sending build context to Docker daemon 2.048 kB
 Step 1/4 : FROM ubuntu
  — -> 6a2f32de169d
