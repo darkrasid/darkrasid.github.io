@@ -1,12 +1,11 @@
 ---
 layout: post
-title:  "docker top 5 advantage"
+title:  "Docker의 image 만드는 과정"
 author: "Pilsner"
-date:  2017-02-12 10:18:00 +0900
-categories: docker container 
+date:  2017-04-19 10:18:00 +0900
+categories: docker container image create
 ---
 
-## Docker의 image 만드는 과정
 Docker에서 image를 만드는 과정은 크게 2가지로 분류됩니다. 첫 번째는 Dockerfile을 작성하여 image를 생성하는 방법이 있습니다. 두 번째는 container로부터 docker commit 하여 image를 만드는 작업입니다. 사실 내부적으로 살펴보면 사실 둘 다 같은 방법입니다.
 ## Dockerfile에서부터 image를 생성
 예시로 아주 간단한 Dockerfile 하나를 만들어보겠습니다.
